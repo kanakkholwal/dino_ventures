@@ -33,7 +33,7 @@ export default function Home() {
                 onSelect={handleCategorySelect}
             />
 
-            <main className="container max-w-screen-2xl mx-auto min-h-[calc(100vh-4rem)] pt-6 pb-20">
+            <main className="container max-w-(--breakpoint-2xl) mx-auto min-h-[calc(100vh-4rem)] pt-6 pb-20">
                 {activeCategory === "all" ? (
                     <DiscoverFeed onCategoryClick={handleCategorySelect} />
                 ) : (
@@ -58,8 +58,8 @@ const CategoryNav = ({
     onSelect: (slug: string) => void;
 }) => {
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-            <div className="container max-w-screen-2xl mx-auto">
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
+            <div className="container max-w-(--breakpoint-2xl) mx-auto">
                 <ScrollArea className="w-full whitespace-nowrap">
                     <div className="flex w-max items-center gap-2 px-4 py-3 md:px-0">
                         {categories.map((cat) => (
@@ -76,7 +76,7 @@ const CategoryNav = ({
                     <ScrollBar orientation="horizontal" className="invisible" />
 
                     {/* Visual gradient mask for scroll hints */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-background to-transparent md:hidden" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-l from-background to-transparent md:hidden" />
                 </ScrollArea>
             </div>
         </header>
@@ -183,7 +183,7 @@ const CategoryGrid = ({
         <div className="flex flex-col gap-8 px-4 md:px-0 animate-in fade-in zoom-in-[0.98] duration-500">
             <div className="flex flex-col gap-4 border-b border-border/40 pb-8 pt-2">
                 <div className="flex items-center gap-4">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-muted to-background border border-border shadow-sm">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-muted to-background border border-border shadow-xs">
                         {currentCategory.category.iconUrl ? (
                             <img
                                 src={currentCategory.category.iconUrl}

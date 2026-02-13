@@ -32,8 +32,8 @@ export function VideoCard({ video }: VideoCardProps) {
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted">
                 {/* Skeleton shimmer */}
                 {!loaded && (
-                    <div className="absolute inset-0 z-[1] animate-pulse">
-                        <div className="h-full w-full bg-gradient-to-r from-muted via-muted-foreground/10 to-muted bg-[length:200%_100%] animate-shimmer rounded-xl" />
+                    <div className="absolute inset-0 z-1 animate-pulse">
+                        <div className="h-full w-full bg-linear-to-r from-muted via-muted-foreground/10 to-muted bg-size-[200%_100%] animate-shimmer rounded-xl" />
                     </div>
                 )}
 
@@ -53,7 +53,7 @@ export function VideoCard({ video }: VideoCardProps) {
 
                 {/* overlay on hover */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-xs">
                         <Play className="size-6 fill-white text-white" />
                     </div>
                 </div>
@@ -66,7 +66,7 @@ export function VideoCard({ video }: VideoCardProps) {
 
                 <Badge
                     variant="secondary"
-                    className="absolute top-2 left-2 bg-black/60 text-white border-0 text-[10px] backdrop-blur-sm"
+                    className="absolute top-2 left-2 bg-black/60 text-white border-0 text-[10px] backdrop-blur-xs"
                 >
                     {video.category}
                 </Badge>

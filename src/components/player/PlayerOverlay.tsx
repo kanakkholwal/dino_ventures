@@ -219,7 +219,7 @@ export function PlayerOverlay() {
                     className={cn(
                         "fixed z-50 overflow-hidden shadow-2xl bg-black origin-bottom",
                         isMinimized
-                            ? "bottom-6 left-4 right-4 h-20 rounded-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-2xl bg-black/80 supports-[backdrop-filter]:bg-black/40"
+                            ? "bottom-6 left-4 right-4 h-20 rounded-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-2xl bg-black/80 supports-backdrop-filter:bg-black/40"
                             : "inset-0 w-full h-full rounded-none"
                     )}
                     ref={containerRef}
@@ -303,7 +303,7 @@ export function PlayerOverlay() {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
-                                            className="absolute inset-0 z-20 flex flex-col justify-between bg-gradient-to-b from-black/60 via-transparent to-black/80"
+                                            className="absolute inset-0 z-20 flex flex-col justify-between bg-linear-to-b from-black/60 via-transparent to-black/80"
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             <div id="video-top-bar" className="flex items-center justify-between p-4 pt-12 md:pt-4">
@@ -337,7 +337,7 @@ export function PlayerOverlay() {
                                                     <Scrubber currentTime={currentTime} duration={duration} onSeek={seekTo} />
                                                 </div>
                                             ) : (
-                                                <div className="p-6 pb-16 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                                <div className="p-6 pb-16 bg-linear-to-t from-black via-black/40 to-transparent">
                                                     <h2 className="text-xl font-bold text-white mb-2 line-clamp-2">{activeVideo.title}</h2>
                                                     <Scrubber currentTime={currentTime} duration={duration} onSeek={seekTo} />
                                                 </div>
@@ -381,7 +381,7 @@ export function PlayerOverlay() {
                                     </div>
                                 </div>
 
-                                <div className="absolute bottom-[1px] left-4 right-4 h-[2px] bg-white/5 rounded-full overflow-hidden">
+                                <div className="absolute bottom-px left-4 right-4 h-[2px] bg-white/5 rounded-full overflow-hidden">
                                     <motion.div
                                         className="h-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"
                                         style={{ width: `${progressPercent}%` }}
@@ -404,7 +404,7 @@ export function PlayerOverlay() {
                                     <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground/70 mb-2">Up Next</h3>
                                     {relatedVideos.map(v => (
                                         <div key={v.slug} className="flex gap-4 cursor-pointer group rounded-xl p-2 -mx-2 hover:bg-accent/40 transition-colors" onClick={() => play(v)}>
-                                            <div className="relative w-32 aspect-video rounded-lg overflow-hidden bg-muted shrink-0 shadow-sm">
+                                            <div className="relative w-32 aspect-video rounded-lg overflow-hidden bg-muted shrink-0 shadow-xs">
                                                 <img src={v.thumbnailUrl} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
                                                 <div className="absolute bottom-1 right-1 bg-black/70 backdrop-blur-[2px] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md">
                                                     {v.duration}
@@ -424,8 +424,8 @@ export function PlayerOverlay() {
                     {!isShorts && (
                         <Drawer.Root open={drawerOpen} onOpenChange={setDrawerOpen}>
                             <Drawer.Portal>
-                                <Drawer.Overlay className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm" />
-                                <Drawer.Content className="bg-background flex flex-col rounded-t-[24px] h-[75vh] fixed bottom-0 left-0 right-0 z-[70] outline-none shadow-[0_-10px_40px_rgba(0,0,0,0.3)]">
+                                <Drawer.Overlay className="fixed inset-0 bg-black/60 z-60 backdrop-blur-xs" />
+                                <Drawer.Content className="bg-background flex flex-col rounded-t-[24px] h-[75vh] fixed bottom-0 left-0 right-0 z-70 outline-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.3)]">
                                     <div className="p-2 pt-3 flex justify-center">
                                         <div className="w-12 h-1.5 rounded-full bg-muted-foreground/20" />
                                     </div>
@@ -435,7 +435,7 @@ export function PlayerOverlay() {
                                     <div className="flex-1 overflow-y-auto p-6 pt-4">
                                         {relatedVideos.map((v) => (
                                             <div key={v.slug} onClick={() => { play(v); setDrawerOpen(false); }} className="flex gap-4 mb-5 active:opacity-60 cursor-pointer">
-                                                <div className="w-36 rounded-xl aspect-video bg-muted overflow-hidden shrink-0 relative shadow-sm">
+                                                <div className="w-36 rounded-xl aspect-video bg-muted overflow-hidden shrink-0 relative shadow-xs">
                                                     <img src={v.thumbnailUrl} className="object-cover w-full h-full" />
                                                 </div>
                                                 <div className="flex-1">
