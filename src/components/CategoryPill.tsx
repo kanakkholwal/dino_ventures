@@ -6,9 +6,10 @@ interface CategoryPillProps {
     isActive: boolean;
     onClick: () => void;
     iconUrl?: string;
+    className?: string
 }
 
-export function CategoryPill({ label, isActive, onClick, iconUrl }: CategoryPillProps) {
+export function CategoryPill({ label, isActive, onClick, iconUrl, className }: CategoryPillProps) {
     return (
         <Button
             variant={isActive ? "default" : "secondary"}
@@ -16,7 +17,8 @@ export function CategoryPill({ label, isActive, onClick, iconUrl }: CategoryPill
             className={cn(
                 "rounded-full px-4 h-9 flex items-center gap-2 transition-all duration-300",
                 isActive ? "shadow-md scale-105" : "hover:bg-secondary/80",
-                "whitespace-nowrap"
+                "whitespace-nowrap",
+                className
             )}
         >
             {iconUrl && (

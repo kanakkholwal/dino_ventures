@@ -70,6 +70,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     -webkit-tap-highlight-color: transparent;
@@ -94,9 +95,11 @@
   outline: none;
   transition: height 0.15s ease;
 }
+
 .seekbar:hover {
   height: 6px;
 }
+
 .seekbar::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -108,6 +111,7 @@
   border: 2px solid white;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
+
 .seekbar::-moz-range-thumb {
   width: 14px;
   height: 14px;

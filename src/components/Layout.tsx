@@ -23,9 +23,7 @@ export default function Layout() {
                             DinoTV
                         </button>
                     </div>
-                    <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-                        {/* Search / User placeholder */}
-                    </div>
+                
                 </div>
             </header>
 
